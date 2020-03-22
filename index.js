@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json({ extended: true }));
 
 //PUERTO DE LA APP
-const PORT = process.env.PORT || 4000;
+const port = process.env.port || 4000;
 //DEF. LA PAG. PRINCIAPAL {pruebas}
 /* app.get("/", (req, res) => {
   res.send("jelou word");
@@ -31,7 +31,7 @@ app.use("/api/proyectos", routeproyectos);
 app.use("/api/tareas", routetareas);
 
 //ARRANCAR EL SERV.
-app.listen(PORT, () => {
+app.listen(port, "0.0.0.0", () => {
   console.log(`serv. corriendo en el puerto ${PORT} `);
 });
 //
