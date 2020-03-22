@@ -18,7 +18,7 @@ app.use(cors());
 app.use(express.json({ extended: true }));
 
 //PUERTO DE LA APP
-const port = process.env.port || 4000;
+const port = process.env.PORT || 4000;
 //DEF. LA PAG. PRINCIAPAL {pruebas}
 /* app.get("/", (req, res) => {
   res.send("jelou word");
