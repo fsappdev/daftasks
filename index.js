@@ -15,7 +15,7 @@ conectDB();
 app.use(cors());
 
 //solucionando problema de cors
-app.use(function(req, res, next) {
+/* app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://daftasks.herokuapp.com/"); // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Headers",
@@ -23,6 +23,27 @@ app.use(function(req, res, next) {
   );
   res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
   next();
+}); */
+//opcion3
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+
+  // authorized headers for preflight requests
+  // https://developer.mozilla.org/en-US/docs/Glossary/preflight_request
+  res.header(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content-Type, Accept"
+  );
+  next();
+
+  app.options("*", (req, res) => {
+    // allowed XHR methods
+    res.header(
+      "Access-Control-Allow-Methods",
+      "GET, PATCH, PUT, POST, DELETE, OPTIONS"
+    );
+    res.send();
+  });
 });
 
 //express.json
