@@ -12,7 +12,7 @@ const app = express();
 conectDB();
 
 //habilitar cors
-app.use(cors());
+app.use(cors({ credentials: true, origin: true }));
 
 //solucionando problema de cors
 /* app.use(function(req, res, next) {
@@ -25,7 +25,7 @@ app.use(cors());
   next();
 }); */
 //opcion3
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
 
   // authorized headers for preflight requests
@@ -44,7 +44,8 @@ app.use((req, res, next) => {
     );
     res.send();
   });
-});
+}); */
+//fin de opcion3
 
 //express.json
 app.use(express.json({ extended: true }));
