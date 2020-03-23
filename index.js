@@ -14,6 +14,13 @@ conectDB();
 //habilitar cors
 app.use(cors({ credentials: true, origin: true }));
 
+//solucion 4
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  next();
+});
+
+//
 //solucionando problema de cors
 /* app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://daftasks.herokuapp.com/"); // update to match the domain you will make the request from
@@ -64,7 +71,7 @@ app.use("/api/proyectos", routeproyectos);
 app.use("/api/tareas", routetareas);
 
 //ARRANCAR EL SERV.
-app.listen(port, "0.0.0.0", () => {
+app.listen(port, () => {
   console.log(`serv. corriendo en el puerto ${PORT} `);
 });
 //
