@@ -74,6 +74,6 @@ app.use("/api/tareas", routetareas);
 
 //ARRANCAR EL SERV.
 app.listen(port, () => {
-  console.log(`serv. corriendo en el puerto ${PORT} `);
+  console.log(`serv. corriendo en el puerto ${port} `);
 });
 //
