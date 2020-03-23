@@ -12,17 +12,17 @@ const app = express();
 conectDB();
 
 //habilitar cors
-/* app.use(cors({ credentials: true, origin: true }));
-
+app.use(cors({ credentials: true, origin: true }));
+app.options("*", cors());
 //solucion 4
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
   next();
 }); */
 //fin de solucion 4
 
 //solucionando problema de cors
-app.use(function(req, res, next) {
+/* app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "https://daftasks.netlify.com/"); // update to match the domain you will make the request from
   res.header(
     "Access-Control-Allow-Headers",
@@ -30,7 +30,8 @@ app.use(function(req, res, next) {
   );
   res.header("Access-Control-Allow-Methods", "POST, GET, PUT, DELETE, OPTIONS");
   next();
-});
+}); */
+//
 
 //opcion3
 /* app.use((req, res, next) => {
